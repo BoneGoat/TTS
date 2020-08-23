@@ -30,6 +30,18 @@ def get_preprocessor_by_name(name):
     thismodule = sys.modules[__name__]
     return getattr(thismodule, name.lower())
 
+def sr(root_path, meta_file):
+    txt_file = os.path.join(root_path, meta_file)
+    items = []
+    print(meta_file)
+    with open(txt_file, 'r') as ttf:
+        for line in ttf:
+            cols = line.split('|')
+            wav_file = cols[0].strip()
+            speaker_name = cols[2].strip()
+            text = cols[3].strip()
+            items.append([text, wav_file, speaker_name])
+    return items
 
 def tweb(root_path, meta_file):
     """Normalize TWEB dataset.

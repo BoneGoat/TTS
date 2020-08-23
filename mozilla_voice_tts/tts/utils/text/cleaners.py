@@ -136,3 +136,11 @@ def phoneme_cleaners(text):
     text = remove_aux_symbols(text)
     text = collapse_whitespace(text)
     return text
+
+def swedish_cleaners(text):
+    text = text.replace(';', ',')
+    text = text.replace('-', '')
+    text = text.replace(':', '')
+    text = remove_aux_symbols(text)
+    text = collapse_whitespace(text)
+    return text
